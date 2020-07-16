@@ -1,0 +1,14 @@
+done:
+* how can we access operators.py??? --> separate action in the other package?
+    decision: create workflows for both packages
+* update/create attributes is slow because attributes are being retrieved for a single asset
+  it is possible to get all attributes of a specific tpye but not for a specific domain or communitiy (whole community??)
+  --> so this ends up in many 1000s of attributes
+    decision: only update data quality rule attributes and no data element attributes
+* add url, user and password to github secrets
+
+open:
+
+# todo: do we also need to parse anonymization parameters?
+# todo: currently, if e.g a dqr relation is deleted in the json file the script cant handle this
+# todo: relations can not be searched inside domains or communities --> whole collibra workspace is searched! --> current limit is set to 1000 entries

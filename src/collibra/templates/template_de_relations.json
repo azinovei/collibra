@@ -1,0 +1,7 @@
+{
+  "rt_community": "Runtastic",
+  "da_community": "Data Architecture",
+  "source_domain": "Physical Data Dictionary",
+  "target_domain": "Physical Data Dictionary",
+  "relation_type": ["Data Element", "targets", "Data Element"]
+}
