@@ -194,7 +194,6 @@ def update_relations(collibra_conn, relations):
 
     if len(relations2create) > 0:
         collibra_conn.create_relations(relations2create)
-    print(f'\t-----------------------------')
     print(f'\t{len(relations2create)} relation(s) created')
     print(f'\t{relations_already_existing} relation(s) already existed')
 
@@ -316,7 +315,6 @@ def run_dqr():
 
 
 def run_de_and_relations():
-    print('Updating Data Element Assets and all Relations')
     collibra_conn, template_path, input_path, schema_type = setup(filename=True)
     # Data Elements and Relations
     fn_dqr_relation_template = os.path.join(template_path, 'template_dqr_relations.json')
@@ -326,8 +324,11 @@ def run_de_and_relations():
     de, de_rel, dqr_rel = parse_fields_and_relations(fn_dqr_relation_template, fn_de_template,
                                                      fn_de_relation_template, fn_parse, schema_type)
     # Update data elements and relations on Collibra
+    print('Updating Data Element Assets')
     update_assets(collibra_conn, de)
+    print('Updating Relations between Data Elements')
     update_relations(collibra_conn, de_rel)
+    print('Updating Relations between Data Quality Rules and Data Elements')
     update_relations(collibra_conn, dqr_rel)
 
 
